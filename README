@@ -1,0 +1,54 @@
+XV6
+
+xv6 is a re-implementation of Dennis Ritchie's and Ken Thompson's Unix
+Version 6 (v6).  xv6 loosely follows the structure and style of v6,
+but is implemented for a modern RISC-V multiprocessor using ANSI C.
+
+BUILDING AND RUNNING XV6
+
+You will need a RISC-V "newlib" tool chain from
+https://github.com/riscv/riscv-gnu-toolchain, and qemu compiled for
+riscv64-softmmu.  Once they are installed, and in your shell
+search path, you can run "make qemu".
+
+USER SPACE
+
+--Custom Commands--
+
+history - Show up to 100 commands that have been recently used.
+Examples:
+    history
+    history 10
+
+xargs - build and execute command lines from standard input
+Examples: 
+    echo hello too | xargs echo bye
+    echo "1\\n2" | xargs -n 1 echo line
+    
+find - search for files in a directory hierarchy
+Examples: 
+    find ./file
+    find ./directory/someFile
+    
+pingpong - command to understand pipping, return pin and pong from parent and child
+Examples:
+    pingpong
+    
+getyear - command to test custom system call, return year when unix was created
+Examples:
+    getyear
+    
+--Custom Functions--
+_malloc(int size) - allocates bigger chunk of requested memory to reduce usage of sbrk and imrpove performance. Then creates memory block of requested size using linked list structure. Handles memory fragmentation issuess.(Located: memory_management.c)
+
+_free(void *ptr) - fress alocated memory (Located: memory_management.c)
+
+KERNAL SPACE
+
+--System Calls--
+
+getyear - system call that returns year when unix was created
+    
+
+    
+
