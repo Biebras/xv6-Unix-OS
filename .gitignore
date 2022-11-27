@@ -17,3 +17,6 @@ user/usys.S
 .gdbinit
 xv6-tools_buildx-latest.sif
 .vscode
+.DS_store
+*.DS_store
+**.DS_store
