@@ -4,7 +4,7 @@
 
 int main(int argc, char *argv[])
 {
-    char* foo1 = (char*)_malloc(1000);
+   	char* foo1 = (char*)_malloc(1000);
     char* foo2 = (char*)_malloc(20000);
     char* foo3 = (char*)_malloc(1000);
     char* foo4 = (char*)_malloc(10);
@@ -17,7 +17,7 @@ int main(int argc, char *argv[])
 
     PrintMemoryLinkList();
 
-    printf("\n", foo1, foo2, foo3, foo4, foo5, foo6, foo7, foo8, foo9);
+    printf("\n", foo1, foo2, foo3, foo4, foo5, foo6, foo7, foo8, foo9, foo10);
 
     _free(foo1);
     _free(foo2);
@@ -31,6 +31,24 @@ int main(int argc, char *argv[])
     _free(foo10);
 
     PrintMemoryLinkList();
+	
+	char* boo1 = (char*)_malloc(40000);
+	char* boo2 = (char*)_malloc(1000);
+	printf("Ptr: %d\n", boo1);
+	PrintMemoryLinkList();
+
+	_free(boo1);
+
+	PrintMemoryLinkList();
+
+	char* boo3 = (char*)_malloc(39977);
+	char* boo4 = (char*)_malloc(8000);
+
+	PrintMemoryLinkList();
+	printf("Ptr: %d\n", boo3);
+	_free(boo3);
+
+	printf("\n", boo1, boo2, boo3, boo4);
 
     exit(0);
 }

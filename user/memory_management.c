@@ -214,7 +214,6 @@ void* _malloc(int size)
 
 	//find available block
 	struct MemoryBlock* availableBlock = findAvailableBlock(size);
-
 	//if available block does not exist create one and assign to the last place
 	if(availableBlock == NULL)
 	{
@@ -228,6 +227,13 @@ void* _malloc(int size)
 
 		lastBlock->next = availableBlock;
 		availableBlock->next = NULL;
+	}
+
+	//if requested size can fit in available block  perfectlly, return available block
+	if(availableBlock->size - (size + blockStructSize) < blockStructSize)
+	{
+		availableBlock->available = 0;
+		return availableBlock->start + blockStructSize;		
 	}
 
 	//shrink available block
